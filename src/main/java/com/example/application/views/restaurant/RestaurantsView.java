@@ -13,7 +13,7 @@ import com.example.application.views.MainLayout;
 
 import java.util.List;
 
-@PageTitle("Restaurants List")
+@PageTitle("Restaurant List")
 @Route(value = "restaurants", layout = MainLayout.class)
 public class RestaurantsView extends VerticalLayout {
     Grid<Restaurant> grid = new Grid<>(Restaurant.class);

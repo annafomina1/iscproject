@@ -16,7 +16,7 @@ import com.vaadin.flow.router.RouteAlias;
 
 import java.util.List;
 
-@PageTitle("Users List")
+@PageTitle("User List")
 @Route(value = "users", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
 public class UsersView extends VerticalLayout {
