@@ -114,6 +114,7 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Restaurants List", "la la-list", RestaurantsView.class), //
 
+
                 new MenuItemInfo("New User Form", "la la-user", UserView.class), //
 
                 new MenuItemInfo("New Restaurant Form", "la la-coffee", RestaurantView.class), //

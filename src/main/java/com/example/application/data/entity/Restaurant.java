@@ -16,6 +16,7 @@ public class Restaurant extends AbstractEntity {
     private String cost;
 
 
+
     public String getName() {
         return name;
     }
@@ -55,7 +56,6 @@ public class Restaurant extends AbstractEntity {
     public void setCost(String cost) {
         this.cost = cost;
     }
-
 
 
 }
