@@ -8,7 +8,6 @@ import java.time.LocalDate;
 public class Rating extends AbstractEntity{
 
     private String name;
-    private double avgRating;
 
     public String getName() {
         return name;
@@ -18,11 +17,4 @@ public class Rating extends AbstractEntity{
         this.name = name;
     }
 
-    public double getAvgRating() {
-        return avgRating;
-    }
-
-    public void setAvgRating(double avgRating) {
-        this.avgRating = avgRating;
-    }
 }

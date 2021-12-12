@@ -3,6 +3,7 @@ package com.example.application.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.application.views.rating.RatingsView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -114,6 +115,7 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Restaurants List", "la la-list", RestaurantsView.class), //
 
+                new MenuItemInfo("Restaurants Ratings", "la la-list", RatingsView.class), //
 
                 new MenuItemInfo("New User Form", "la la-user", UserView.class), //
 
