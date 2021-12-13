@@ -2,19 +2,55 @@ package com.example.application.data.entity;
 import javax.persistence.Entity;
 
 import com.example.application.data.AbstractEntity;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Rating extends AbstractEntity{
 
-    private String name;
+    private int restaurantId;
+    private int userId;
+    private int value;
+    private Date updateTime;
+    private String comment;
 
-    public String getName() {
-        return name;
+
+    public int getRestaurantId() {
+        return restaurantId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRestaurantId(int restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
