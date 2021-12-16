@@ -3,6 +3,7 @@ package com.example.application.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.application.views.rating.RatingForm;
 import com.example.application.views.rating.RatingsView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -120,6 +121,9 @@ public class MainLayout extends AppLayout {
                 new MenuItemInfo("New User Form", "la la-user", UserView.class), //
 
                 new MenuItemInfo("New Restaurant Form", "la la-coffee", RestaurantView.class), //
+
+                new MenuItemInfo("Rating Form", "la la-coffee", RatingForm.class), //
+
 
 
 

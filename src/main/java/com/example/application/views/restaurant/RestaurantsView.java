@@ -38,7 +38,7 @@ public class RestaurantsView extends VerticalLayout {
     }
 
     private void updateList() {
-        List<Restaurant> list = service.findAllContacts(null);
+        List<Restaurant> list = service.findAll();
         grid.setItems(list);
     }
 

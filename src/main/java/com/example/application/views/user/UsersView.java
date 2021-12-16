@@ -43,7 +43,7 @@ public class UsersView extends VerticalLayout {
     }
 
     private void updateList() {
-        List<User> list = service.findAllContacts(null);
+        List<User> list = service.findAll();//null was a param
         grid.setItems(list);
     }
 

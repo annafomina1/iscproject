@@ -10,7 +10,6 @@ public class Rating extends AbstractEntity{
     private int restaurantId;
     private int userId;
     private int value;
-    private Date updateTime;
     private String comment;
 
 
@@ -36,14 +35,6 @@ public class Rating extends AbstractEntity{
 
     public void setValue(int value) {
         this.value = value;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public String getComment() {

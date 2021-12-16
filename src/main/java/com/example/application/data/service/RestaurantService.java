@@ -22,13 +22,10 @@ public class RestaurantService extends CrudService<Restaurant, Integer> {
         return repository;
     }
 
-    public List<Restaurant> findAllContacts(String stringFilter) {
-        if (stringFilter == null || stringFilter.isEmpty()) {
-            return repository.findAll();
-        } else {
-            return repository.findAll();
-            // return repository.search(stringFilter);
-        }
+    public List<Restaurant> findAll() {
+        return repository.findAll();
     }
+
+    //search method for restaurant search bar similar to above method
 
 }
