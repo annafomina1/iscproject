@@ -5,17 +5,18 @@ import javax.persistence.Entity;
 import com.example.application.data.AbstractEntity;
 import java.time.LocalDate;
 
+/**
+ * This class represents a restaurant
+ */
 @Entity
 public class Restaurant extends AbstractEntity {
-
+    //fields: name of restaurant, address, postal code, cuisine, location (city and province), cost ($-$$$$)
     private String name;
     private String address;
     private String postalCode;
     private String cuisine;
     private String location;
     private String cost;
-
-
 
     public String getName() {
         return name;

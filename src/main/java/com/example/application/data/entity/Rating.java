@@ -4,9 +4,13 @@ import javax.persistence.Entity;
 import com.example.application.data.AbstractEntity;
 import java.util.Date;
 
+/**
+ * This class represents a singular rating for a specific restaurant
+ */
 @Entity
 public class Rating extends AbstractEntity{
 
+    // fields: restaurant id, user id, value of rating (int 1-5), comment - might remove
     private int restaurantId;
     private int userId;
     private int value;

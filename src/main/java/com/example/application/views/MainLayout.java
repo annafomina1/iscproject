@@ -29,6 +29,7 @@ import com.example.application.views.about.AboutView;
  * The main view is a top-level placeholder for other views.
  */
 @PageTitle("Main")
+//hello
 public class MainLayout extends AppLayout {
 
     public static class MenuItemInfo {
@@ -110,19 +111,19 @@ public class MainLayout extends AppLayout {
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
 
-                new MenuItemInfo("About Us Page", "la la-file", AboutView.class), //
+                new MenuItemInfo("About Us Page", "la la-coffee", AboutView.class), //
 
                 new MenuItemInfo("Users List", "la la-user-friends", UsersView.class), //
 
-                new MenuItemInfo("Restaurants List", "la la-list", RestaurantsView.class), //
+                new MenuItemInfo("Restaurants List", "la la-cutlery", RestaurantsView.class), //
 
-                new MenuItemInfo("Restaurant Ratings", "la la-list", RatingsView.class), //
+                new MenuItemInfo("Restaurant Ratings", "la la-star", RatingsView.class), //
 
                 new MenuItemInfo("New User Form", "la la-user", UserView.class), //
 
-                new MenuItemInfo("New Restaurant Form", "la la-coffee", RestaurantView.class), //
+                new MenuItemInfo("New Restaurant Form", "la la-key", RestaurantView.class), //
 
-                new MenuItemInfo("Rating Form", "la la-coffee", RatingForm.class), //
+                new MenuItemInfo("Rating Form", "la la-keyboard", RatingForm.class), //
 
 
 

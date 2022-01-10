@@ -26,6 +26,8 @@ public class RestaurantService extends CrudService<Restaurant, Integer> {
         return repository.findAll();
     }
 
+
+
     //search method for restaurant search bar similar to above method
 
 }

@@ -5,9 +5,13 @@ import javax.persistence.Entity;
 import com.example.application.data.AbstractEntity;
 import java.time.LocalDate;
 
+/**
+ * This class represents a user of the website
+ */
 @Entity
 public class User extends AbstractEntity {
 
+    //fields: first name, last name, email address, username, password, postal code, date of birth
     private String firstName;
     private String lastName;
     private String email;
@@ -15,7 +19,6 @@ public class User extends AbstractEntity {
     private String password;
     private String postalCode;
     private LocalDate dateOfBirth;
-
 
     public String getFirstName() {
         return firstName;

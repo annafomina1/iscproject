@@ -26,13 +26,15 @@ import com.vaadin.flow.router.Route;
 
 import java.util.List;
 
-@PageTitle("Rating Entry Form")
+@PageTitle("Rating Form")
 @Route(value = "rating", layout = MainLayout.class)
 @Uses(Icon.class)
 public class RatingForm extends FormLayout {
 
-    private TextField userName = new TextField("Username");
+    private TextField username = new TextField("Username");
+    private TextField password = new TextField("Password");
     private ComboBox<Restaurant> restaurant = new ComboBox<>("Restaurant");
+    //the next two fields are in the rating database
     private IntegerField value = new IntegerField("Rating");
     private TextField comment = new TextField("Comment");
 
@@ -42,7 +44,7 @@ public class RatingForm extends FormLayout {
     private Binder<Rating> binder = new Binder<>(Rating.class);
 
     public RatingForm(RatingService ratingService, RestaurantService restaurantService, UserService userService) {
-        addClassName("user-view");
+        addClassName("user-view");//delete
 
         List<Restaurant> restaurants = restaurantService.findAll();
         restaurant.setItems(restaurants);
@@ -56,18 +58,34 @@ public class RatingForm extends FormLayout {
         clearForm();
 
         save.addClickListener(e -> {
-            String usernameInput = userName.getValue();
+            String usernameInput = username.getValue();
+            String passwordInput = password.getValue();
+
             User user = userService.findByUserName(usernameInput);
             if (user == null) {
-                Notification.show("Username was not found.");
+                Notification.show("Username not found.");
+            }
+
+            if(user!=null) {
+                if(!passwordInput.equals(user.getPassword())) {
+                    Notification.show("Password is incorrect.");
+                }
             }
 
             Restaurant selectedRestaurant = restaurant.getValue();
             if (selectedRestaurant == null) {
-                Notification.show("Select Restaurant.");
+                Notification.show("Select a restaurant.");
             }
 
-            if ((user != null) && (selectedRestaurant != null)) {
+            boolean valueRange = true;
+
+            if(value.getValue()< 1 || value.getValue() >5) {
+                Notification.show("Invalid rating.");
+
+                valueRange=false;
+            }
+
+            if ((user != null) && (selectedRestaurant != null) && (passwordInput.equals(user.getPassword())) && valueRange) {
                 Rating rating = binder.getBean();
                 rating.setUserId(user.getId());
                 rating.setRestaurantId(selectedRestaurant.getId());
@@ -85,6 +103,7 @@ public class RatingForm extends FormLayout {
     private void clearForm() {
         binder.setBean(new Rating());
         restaurant.clear();
+        value.setValue(1);
     }
 
     private Component createTitle() {
@@ -92,12 +111,12 @@ public class RatingForm extends FormLayout {
     }
 
     private Component createFormLayout() {
-        value.setMin(0);
+        value.setMin(1);
         value.setMax(5);
         value.setHasControls(true);
 
         FormLayout formLayout = new FormLayout();
-        formLayout.add(userName, restaurant, value, comment);
+        formLayout.add(username, password, restaurant, value, comment);
         return formLayout;
     }
 
