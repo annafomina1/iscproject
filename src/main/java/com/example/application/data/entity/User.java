@@ -19,6 +19,15 @@ public class User extends AbstractEntity {
     private String password;
     private String postalCode;
     private LocalDate dateOfBirth;
+    
+    public User(){}
+    
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+    
+    public boolean checkPassword(String p){return p.equals(password);}
 
     public String getFirstName() {
         return firstName;
