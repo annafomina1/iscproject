@@ -27,7 +27,7 @@ import com.vaadin.flow.component.icon.Icon;
 @Route(value = "restaurant", layout = MainLayout.class)
 @Uses(Icon.class)
 public class RestaurantView extends Div {
-
+    // creates TextField objects for each field
     private TextField name = new TextField("Name");
     private TextField address = new TextField("Address");
     private TextField postalCode = new TextField("Postal Code");
@@ -35,10 +35,10 @@ public class RestaurantView extends Div {
     private TextField location = new TextField("Location");
     private TextField cost = new TextField("Cost");
     //^ drop down?
-
+// creates button objects for the cancel and save button
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
-
+//binder for restaurant
     private Binder<Restaurant> binder = new Binder<>(Restaurant.class);
 
     public RestaurantView(RestaurantService restaurantService) {

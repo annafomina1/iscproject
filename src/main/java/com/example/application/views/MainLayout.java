@@ -29,7 +29,6 @@ import com.example.application.views.about.AboutView;
  * The main view is a top-level placeholder for other views.
  */
 @PageTitle("Main")
-//hello
 public class MainLayout extends AppLayout {
 
     public static class MenuItemInfo {
