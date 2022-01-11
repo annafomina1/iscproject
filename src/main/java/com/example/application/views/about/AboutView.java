@@ -22,20 +22,30 @@ public class AboutView extends VerticalLayout {
         String team = "\nProject Manager: 	 Ava Donaldson \nSystems Analyst: 	 Harper Rapkin\nLead Programmer: 	 Anna Fomina \nGraphic Artist: 	 Christine Shao \nTechnical Writer: 	 Ava Donaldson\n";
         String missionStatement = "\n''Our project aims to assist users in finding an ideal restaurant within their postal code and of their preferred cuisine.''\n";
         String about = "\nHave you ever wanted to eat out but couldn’t decide where to go? Have you wanted to eat a certain cuisine but struggled to find a nearby location? Our organization aims to help make these decisions simpler through our brand new program!\n";
+        String space = "\n";
 
 //
-//        Image img = new Image("images/skibble-logo.png", "skibble logo");
-//        img.setWidth("140px");
-//        add(img);
+        Image img = new Image("images/skibble-logo.png", "skibble logo");
+        img.setWidth("300px");
+        img.setHeight("300px");
+        //add(img);
 
+
+        add(new Paragraph(space));
+        add(new Paragraph(space));
         add(new H1("Welcome to Skibble!"));
+        add(img);
+        add(new Paragraph(about));
         add(new H2(missionStatement));
-        add(new H3(about));
+        add(new Paragraph(space));
+        add(new Paragraph(space));
         add(new Paragraph("Project Manager:   Ava Donaldson"));
         add(new Paragraph("Systems Analyst:   Harper Rapkin"));
         add(new Paragraph("Lead Programmer:   Anna Fomina"));
         add(new Paragraph("Graphic Artist:   Christine Shao"));
         add(new Paragraph("Technical Writer:   Ava Donaldson"));
+        add(new Paragraph(space));
+        add(new Paragraph(space));
         add(new Paragraph("Contact Information:"));
         add(new Paragraph("SkibbleHelp@Skibble.com         123-456-7890"));
 
