@@ -127,7 +127,7 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Rating Form", "la la-coffee", RatingForm.class), //
 
-
+                new MenuItemInfo("Login Form", "la la-coffee", LoginView.class), //
 
 
         };
