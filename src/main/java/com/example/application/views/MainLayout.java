@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.application.views.home.HomePage;
 import com.example.application.views.rating.RatingForm;
 import com.example.application.views.rating.RatingsView;
+import com.example.application.views.search.Search;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -113,6 +114,10 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Home", "la la-file", HomePage.class), //
 
+                //new MenuItemInfo("Search", "la la-coffee", Search.class), //
+
+                new MenuItemInfo("Home", "la la-coffee", HomePage.class), //
+
                 new MenuItemInfo("About Us Page", "la la-file", AboutView.class), //
 
                 new MenuItemInfo("Users List", "la la-user-friends", UsersView.class), //
@@ -127,7 +132,7 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Rating Form", "la la-coffee", RatingForm.class), //
 
-                new MenuItemInfo("Login Form", "la la-coffee", LoginView.class), //
+                //new MenuItemInfo("Login Form", "la la-coffee", LoginView.class), //
 
 
         };
