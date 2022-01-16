@@ -3,10 +3,11 @@ package com.example.application.views;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.application.views.home.HomePage;
+import com.example.application.views.login.LoginView;
 import com.example.application.views.rating.RatingForm;
+import com.example.application.views.user.ProfileView;
 import com.example.application.views.rating.RatingsView;
-import com.example.application.views.search.Search;
+import com.example.application.views.restaurant.RecommendedView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -31,6 +32,7 @@ import com.example.application.views.about.AboutView;
  * The main view is a top-level placeholder for other views.
  */
 @PageTitle("Main")
+//hello
 public class MainLayout extends AppLayout {
 
     public static class MenuItemInfo {
@@ -112,28 +114,27 @@ public class MainLayout extends AppLayout {
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
 
-                new MenuItemInfo("Home", "la la-file", HomePage.class), //
+                // https://icons8.com/line-awesome
 
-                //new MenuItemInfo("Search", "la la-coffee", Search.class), //
-
-                new MenuItemInfo("Home", "la la-coffee", HomePage.class), //
-
-                new MenuItemInfo("About Us Page", "la la-file", AboutView.class), //
+                new MenuItemInfo("About Us Page", "la la-info", AboutView.class), //
 
                 new MenuItemInfo("Users List", "la la-user-friends", UsersView.class), //
 
-                new MenuItemInfo("Restaurants List", "la la-list", RestaurantsView.class), //
+                new MenuItemInfo("Restaurants List", "la la-cutlery", RestaurantsView.class), //
 
-                new MenuItemInfo("Restaurant Ratings", "la la-list", RatingsView.class), //
+                new MenuItemInfo("Restaurant Ratings", "la la-star", RatingsView.class), //
 
-                new MenuItemInfo("New User Form", "la la-user", UserView.class), //
+                new MenuItemInfo("New User Form", "la la-id-card", UserView.class), //
 
-                new MenuItemInfo("New Restaurant Form", "la la-coffee", RestaurantView.class), //
+                new MenuItemInfo("New Restaurant Form", "la la-store-alt", RestaurantView.class), //
 
-                new MenuItemInfo("Rating Form", "la la-coffee", RatingForm.class), //
+                new MenuItemInfo("Rating Form", "la la-keyboard", RatingForm.class),
 
-                //new MenuItemInfo("Login Form", "la la-coffee", LoginView.class), //
+               // new MenuItemInfo("Profile", "la la-keyboard", ProfileView.class), //
 
+                new MenuItemInfo("Recommended", "la la-thumbs-up", RecommendedView.class), //
+
+                new MenuItemInfo("Login", "la la-thumbs-up", LoginView.class), //
 
         };
         List<RouterLink> links = new ArrayList<>();

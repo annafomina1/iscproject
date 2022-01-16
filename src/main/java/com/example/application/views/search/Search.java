@@ -1,7 +1,7 @@
 package com.example.application.views.search;
 
-import com.example.application.data.entity.Restaurant;
-import com.example.application.data.service.RestaurantService;
+//import com.example.application.data.entity.Restaurant;
+//import com.example.application.data.service.RestaurantService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -29,11 +29,12 @@ import com.vaadin.flow.component.icon.Icon;
 
 public class Search extends Div {
 
-// creates button objects for the search button
+    // creates button objects for the search button
     private Button search = new Button("Search");
 
 
-    public Search(RestaurantService restaurantService) {
+    public Search() {
+
 
         addClassName("search");
 

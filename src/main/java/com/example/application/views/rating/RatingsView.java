@@ -1,11 +1,7 @@
 package com.example.application.views.rating;
 import com.example.application.data.entity.AverageRating;
-import com.example.application.data.entity.Rating;
 import com.example.application.data.service.RatingService;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;

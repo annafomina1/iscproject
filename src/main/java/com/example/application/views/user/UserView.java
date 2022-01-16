@@ -5,8 +5,6 @@ import com.example.application.data.service.UserService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.combobox.ComboBox;
-import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
@@ -36,7 +34,7 @@ public class UserView extends Div {
     private EmailField email = new EmailField("Email address");
     private TextField username = new TextField("Username");
     private TextField password = new TextField("Password");
-    private TextField postalCode = new TextField("Postal code");
+    private TextField postalCode = new TextField("City");
     private DatePicker dateOfBirth = new DatePicker("Birthday");
 
     private Button cancel = new Button("Cancel");

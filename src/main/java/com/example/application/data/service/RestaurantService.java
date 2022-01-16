@@ -27,7 +27,6 @@ public class RestaurantService extends CrudService<Restaurant, Integer> {
     }
 
 
-
     //search method for restaurant search bar similar to above method
 
 }
