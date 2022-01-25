@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.example.application.views.login.LoginView;
 import com.example.application.views.rating.RatingForm;
-import com.example.application.views.user.ProfileView;
+//import com.example.application.views.user.ProfileView;
 import com.example.application.views.rating.RatingsView;
 import com.example.application.views.restaurant.RecommendedView;
 import com.vaadin.flow.component.Component;
@@ -116,7 +116,7 @@ public class MainLayout extends AppLayout {
 
                 // https://icons8.com/line-awesome
 
-                new MenuItemInfo("About Us Page", "la la-info", AboutView.class), //
+                new MenuItemInfo("About Us", "la la-info", AboutView.class), //
 
                 new MenuItemInfo("Users List", "la la-user-friends", UsersView.class), //
 
