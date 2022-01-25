@@ -34,8 +34,6 @@ public class RestaurantsView extends VerticalLayout {
         add(cuisine, search, grid);
         setList();
 
-
-
         search.addClickListener(e ->{
 
             updateList();
