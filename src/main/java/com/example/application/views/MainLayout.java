@@ -2,10 +2,9 @@ package com.example.application.views;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.example.application.views.home.HomePage;
 import com.example.application.views.login.LoginView;
 import com.example.application.views.rating.RatingForm;
-//import com.example.application.views.user.ProfileView;
 import com.example.application.views.rating.RatingsView;
 import com.example.application.views.restaurant.RecommendedView;
 import com.vaadin.flow.component.Component;
@@ -32,7 +31,6 @@ import com.example.application.views.about.AboutView;
  * The main view is a top-level placeholder for other views.
  */
 @PageTitle("Main")
-//hello
 public class MainLayout extends AppLayout {
 
     public static class MenuItemInfo {
@@ -116,7 +114,9 @@ public class MainLayout extends AppLayout {
 
                 // https://icons8.com/line-awesome
 
-                new MenuItemInfo("About Us", "la la-info", AboutView.class), //
+                new MenuItemInfo("About Us Page", "la la-info", AboutView.class), //
+
+                new MenuItemInfo("Home Page", "la la-info", HomePage.class), //
 
                 new MenuItemInfo("Users List", "la la-user-friends", UsersView.class), //
 
@@ -129,8 +129,6 @@ public class MainLayout extends AppLayout {
                 new MenuItemInfo("New Restaurant Form", "la la-store-alt", RestaurantView.class), //
 
                 new MenuItemInfo("Rating Form", "la la-keyboard", RatingForm.class),
-
-               // new MenuItemInfo("Profile", "la la-keyboard", ProfileView.class), //
 
                 new MenuItemInfo("Recommended", "la la-thumbs-up", RecommendedView.class), //
 

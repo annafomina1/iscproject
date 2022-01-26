@@ -1,9 +1,7 @@
 package com.example.application.data.entity;
 
 import javax.persistence.Entity;
-
 import com.example.application.data.AbstractEntity;
-import java.time.LocalDate;
 
 /**
  * This class represents a restaurant

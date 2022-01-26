@@ -4,16 +4,11 @@ import com.example.application.data.entity.Restaurant;
 import com.example.application.data.service.RestaurantService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
-
-
 import java.util.List;
 
 @PageTitle("Restaurant List")
@@ -53,13 +48,13 @@ public class RestaurantsView extends VerticalLayout {
 
     private void updateList() {
 
-        if(cuisine!= null){
-            List<Restaurant> list = service.findCuisine(cuisine.getValue().toLowerCase());
+        if(cuisine== null|| cuisine.getValue().equals("")){
+            List<Restaurant> list = service.findAll();
             grid.setItems(list);
 
         }
         else{
-            List<Restaurant> list = service.findAll();
+            List<Restaurant> list = service.findCuisine(cuisine.getValue().toLowerCase());
             grid.setItems(list);
         }
 

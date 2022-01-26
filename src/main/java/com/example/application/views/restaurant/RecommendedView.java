@@ -17,7 +17,6 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
-
 import java.util.List;
 
 @PageTitle("Recommended")
@@ -33,15 +32,17 @@ public class RecommendedView extends VerticalLayout {
     public RecommendedView(RatingService service, UserService userService) {
         this.service = service;
         addClassName("list-view");
-        setSizeFull();
-
-        configureGrid();
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
-        add(grid);
+
 
         show.addClickListener(e -> {
+            setSizeFull();
+
+            configureGrid();
+
+            add(grid);
             String usernameInput = username.getValue();
             User user = userService.findByUserName(usernameInput);
             if (user == null) {
@@ -62,9 +63,11 @@ public class RecommendedView extends VerticalLayout {
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
     }
 
+
     private Component createTitle() {
         return new H3("Enter your username:");
     }
+
 
     private Component createFormLayout() {
         FormLayout formLayout = new FormLayout();

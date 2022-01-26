@@ -19,12 +19,11 @@ import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.icon.Icon;
-//!! add username taken check and notification - or for authentication..?
-/**
+//!! add username taken check and notification
+/*
  * This page is a form where new users input their information
  */
 @PageTitle("User Information Form")
-//connection from main layout ??????
 @Route(value = "user", layout = MainLayout.class)
 @Uses(Icon.class)
 public class UserView extends Div {

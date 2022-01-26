@@ -4,11 +4,9 @@ import com.example.application.data.entity.AverageRating;
 import com.example.application.data.entity.FavouriteCuisine;
 import com.example.application.data.entity.Rating;
 import com.example.application.data.entity.Restaurant;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.vaadin.artur.helpers.CrudService;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

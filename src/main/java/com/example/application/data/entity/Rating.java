@@ -1,8 +1,7 @@
 package com.example.application.data.entity;
-import javax.persistence.Entity;
 
+import javax.persistence.Entity;
 import com.example.application.data.AbstractEntity;
-import java.util.Date;
 
 /**
  * This class represents a singular rating for a specific restaurant
@@ -14,7 +13,6 @@ public class Rating extends AbstractEntity{
     private int restaurantId;
     private int userId;
     private int value;
-    private String comment;
 
 
     public int getRestaurantId() {
@@ -41,11 +39,4 @@ public class Rating extends AbstractEntity{
         this.value = value;
     }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
 }

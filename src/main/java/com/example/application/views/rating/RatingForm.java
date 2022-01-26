@@ -14,7 +14,6 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.html.IFrame;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -23,20 +22,22 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
 import java.util.List;
 
 @PageTitle("Rating Form")
 @Route(value = "rating", layout = MainLayout.class)
 @Uses(Icon.class)
 public class RatingForm extends FormLayout {
-
+    /*creates components for each input field on the form. username, password, restaurant to be rated (from a drop-down menu),
+     
+     */
     private TextField username = new TextField("Username");
+    //make password field
     private TextField password = new TextField("Password");
     private ComboBox<Restaurant> restaurant = new ComboBox<>("Restaurant");
     //the next two fields are in the rating database
+    //!!if customer is rating the restaurant for the second time, remove the previous rating from the database somehow?
     private IntegerField value = new IntegerField("Rating");
-    private TextField comment = new TextField("Comment");
 
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
@@ -44,7 +45,6 @@ public class RatingForm extends FormLayout {
     private Binder<Rating> binder = new Binder<>(Rating.class);
 
     public RatingForm(RatingService ratingService, RestaurantService restaurantService, UserService userService) {
-        addClassName("user-view");//delete
 
         List<Restaurant> restaurants = restaurantService.findAll();
         restaurant.setItems(restaurants);
@@ -116,7 +116,7 @@ public class RatingForm extends FormLayout {
         value.setHasControls(true);
 
         FormLayout formLayout = new FormLayout();
-        formLayout.add(username, password, restaurant, value, comment);
+        formLayout.add(username, password, restaurant, value);
         return formLayout;
     }
 
