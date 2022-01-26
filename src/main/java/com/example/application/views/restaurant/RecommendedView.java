@@ -18,6 +18,8 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import java.util.List;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.Text;
 
 @PageTitle("Recommended")
 @Route(value = "recommended", layout = MainLayout.class)
@@ -28,6 +30,11 @@ public class RecommendedView extends VerticalLayout {
 
     Grid<Restaurant> grid = new Grid<>(Restaurant.class);
     RatingService service;
+    
+    private Button help = new Button("?");
+    private Button closeButton = new Button("x");
+    private Notification notification = new Notification();
+    private Text text = new Text ("Based on your location and ratings, we have gathered some recommendations for you!");
 
     public RecommendedView(RatingService service, UserService userService) {
         this.service = service;
@@ -35,6 +42,7 @@ public class RecommendedView extends VerticalLayout {
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
+        add(help);
 
 
         show.addClickListener(e -> {
@@ -53,6 +61,19 @@ public class RecommendedView extends VerticalLayout {
                 int userId = user.getId();
                 updateList(userId);
             }
+        });
+        
+        Button closeButton = new Button("x");
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        help.addClickListener(e ->{
+            HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+            notification.add(layout);
+            notification.open();
+
         });
     }
 
