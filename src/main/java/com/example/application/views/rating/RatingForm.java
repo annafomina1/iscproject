@@ -23,6 +23,8 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import java.util.List;
+import com.vaadin.flow.component.Text;
+
 
 @PageTitle("Rating Form")
 @Route(value = "rating", layout = MainLayout.class)
@@ -41,6 +43,11 @@ public class RatingForm extends FormLayout {
 
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
+    
+    private Button help = new Button("?");
+    private Button closeButton = new Button("x");
+    private Notification notification = new Notification();
+    private Text text = new Text ("If you have made an account, you can add new restaurant ratings here by logging in. ");
 
     private Binder<Rating> binder = new Binder<>(Rating.class);
 
@@ -53,6 +60,7 @@ public class RatingForm extends FormLayout {
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
+        add(help);
 
         binder.bindInstanceFields(this);
         clearForm();
@@ -98,6 +106,19 @@ public class RatingForm extends FormLayout {
         });
 
         cancel.addClickListener(e -> clearForm());
+        
+        Button closeButton = new Button("x");
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        help.addClickListener(e ->{
+            HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+            notification.add(layout);
+            notification.open();
+
+        });
     }
 
     private void clearForm() {
