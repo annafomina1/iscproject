@@ -8,11 +8,20 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
+import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 
 
 @PageTitle("About")
 @Route(value = "about", layout = MainLayout.class)
 public class AboutView extends VerticalLayout {
+    
+    private Button help = new Button("?");
+    private Button closeButton = new Button("x");
+    private Notification notification = new Notification();
+    private Text text = new Text ("Welcome to Skibble, a convenient restaurant finder that meets your preferences and needs! Start off by making a new account in the new user form tab. From there you can check out the restaurants in the Restaurants List and add ratings in the Rating Form. \n");
+
 
     public AboutView() {
         setSpacing(false);
@@ -46,11 +55,25 @@ public class AboutView extends VerticalLayout {
         add(new Paragraph(space));
         add(new Paragraph("Contact Information:"));
         add(new Paragraph("SkibbleHelp@Skibble.com         123-456-7890"));
+        add(help);
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
+        
+        Button closeButton = new Button("x");
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        help.addClickListener(e ->{
+            HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+            notification.add(layout);
+            notification.open();
+
+        });
     }
 
 }
