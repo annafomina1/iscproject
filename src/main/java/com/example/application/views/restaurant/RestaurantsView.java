@@ -7,9 +7,11 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import java.util.List;
+import com.vaadin.flow.component.notification.Notification;
 
 @PageTitle("Restaurant List")
 @Route(value = "restaurants", layout = MainLayout.class)
@@ -20,6 +22,12 @@ public class RestaurantsView extends VerticalLayout {
 
     Grid<Restaurant> grid = new Grid<>(Restaurant.class);
     RestaurantService service;
+    
+    private Button help = new Button("?");
+    private Button closeButton = new Button("x");
+    private Notification notification = new Notification();
+    private Text text = new Text ("Here you can see all the restaurants listed with their ratings, costs, location and cuisine types. \n");
+
 
     public RestaurantsView(RestaurantService service) {
 
@@ -27,12 +35,26 @@ public class RestaurantsView extends VerticalLayout {
         setSizeFull();
         configureGrid();
         add(cuisine, search, grid);
+        add(help);
         setList();
 
         search.addClickListener(e ->{
 
             updateList();
             add(grid);
+
+        });
+        
+        Button closeButton = new Button("x");
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        help.addClickListener(e ->{
+            HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+            notification.add(layout);
+            notification.open();
 
         });
 
