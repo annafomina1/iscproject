@@ -19,6 +19,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.Text;
+
 //!! add username taken check and notification
 /*
  * This page is a form where new users input their information
@@ -40,6 +42,11 @@ public class UserView extends Div {
     private Button save = new Button("Save");
 
     private Binder<User> binder = new Binder<>(User.class);
+    
+    private Button help = new Button("?");
+    private Button closeButton = new Button("x");
+    private Notification notification = new Notification();
+    private Text text = new Text ("Please make a new account here!\n");
 
     public UserView(UserService userService) {
         addClassName("user-view");
@@ -47,6 +54,7 @@ public class UserView extends Div {
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
+        add(help);
 
         binder.bindInstanceFields(this);
         clearForm();
@@ -56,6 +64,19 @@ public class UserView extends Div {
             userService.update(binder.getBean());
             Notification.show(binder.getBean().getClass().getSimpleName() + " details stored.");
             clearForm();
+        });
+        
+        Button closeButton = new Button("x");
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        help.addClickListener(e ->{
+            HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+            notification.add(layout);
+            notification.open();
+
         });
     }
 
