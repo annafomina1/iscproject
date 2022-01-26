@@ -3,6 +3,7 @@ package com.example.application.views.restaurant;
 import com.example.application.data.entity.Restaurant;
 import com.example.application.data.service.RestaurantService;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
@@ -35,6 +36,11 @@ public class RestaurantView extends Div {
     private Button save = new Button("Save");
 //binder for restaurant
     private Binder<Restaurant> binder = new Binder<>(Restaurant.class);
+    
+    private Button help = new Button("?");
+    private Button closeButton = new Button("x");
+    private Notification notification = new Notification();
+    private Text text = new Text ("Here feel free to add any restaurants with their appropriate information. \n");
 
     public RestaurantView(RestaurantService restaurantService) {
         addClassName("restaurant-view");
@@ -42,6 +48,7 @@ public class RestaurantView extends Div {
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
+        add(help);
 
         binder.bindInstanceFields(this);
         clearForm();
@@ -51,6 +58,19 @@ public class RestaurantView extends Div {
             restaurantService.update(binder.getBean());
             Notification.show(binder.getBean().getClass().getSimpleName() + " details stored.");
             clearForm();
+        });
+        
+        Button closeButton = new Button("x");
+        closeButton.getElement().setAttribute("aria-label", "Close");
+        closeButton.addClickListener(event -> {
+            notification.close();
+        });
+
+        help.addClickListener(e ->{
+            HorizontalLayout layout = new HorizontalLayout(text, closeButton);
+            notification.add(layout);
+            notification.open();
+
         });
     }
 
