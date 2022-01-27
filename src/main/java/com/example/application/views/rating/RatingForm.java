@@ -43,9 +43,11 @@ public class RatingForm extends FormLayout {
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");
     
-    private Button help = new Button("?");
-    private Button closeButton = new Button("x");
+    //creating the field objects for the help popup window system (Harper Rapkin)
+    private Button help = new Button("?");//help button
+    private Button closeButton = new Button("x");//close for help notification
     private Notification notification = new Notification();
+    //text that appears on the popup window
     private Text text = new Text ("If you have made an account, you can add new restaurant ratings here by logging in. ");
 
     private Binder<Rating> binder = new Binder<>(Rating.class);
@@ -59,7 +61,7 @@ public class RatingForm extends FormLayout {
         add(createTitle());
         add(createFormLayout());
         add(createButtonLayout());
-        add(help);
+        add(help); //adding the button to access the help popup window (Harper Rapkin)
 
         binder.bindInstanceFields(this);
         clearForm();
@@ -106,12 +108,14 @@ public class RatingForm extends FormLayout {
 
         cancel.addClickListener(e -> clearForm());
         
+        //setting the attributes and actions for the button (Harper Rapkin)
         Button closeButton = new Button("x");
         closeButton.getElement().setAttribute("aria-label", "Close");
         closeButton.addClickListener(event -> {
             notification.close();
         });
 
+        //setting the attributes and actions for the button, adding the notification when the button is clicked (Harper Rapkin)
         help.addClickListener(e ->{
             HorizontalLayout layout = new HorizontalLayout(text, closeButton);
             notification.add(layout);
