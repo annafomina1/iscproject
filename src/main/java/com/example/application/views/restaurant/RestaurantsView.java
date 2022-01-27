@@ -4,6 +4,7 @@ import com.example.application.data.entity.Restaurant;
 import com.example.application.data.service.RestaurantService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
@@ -13,11 +14,11 @@ import com.example.application.views.MainLayout;
 import java.util.List;
 import com.vaadin.flow.component.notification.Notification;
 
-@PageTitle("Restaurant List")
+@PageTitle("List of Restaurants")
 @Route(value = "restaurants", layout = MainLayout.class)
 public class RestaurantsView extends VerticalLayout {
 
-    private TextField cuisine = new TextField("Cuisine");
+    private TextField cuisine = new TextField("Search by cuisine...");
     private Button search = new Button("Search");
 
     Grid<Restaurant> grid = new Grid<>(Restaurant.class);
@@ -26,7 +27,7 @@ public class RestaurantsView extends VerticalLayout {
     private Button help = new Button("?");
     private Button closeButton = new Button("x");
     private Notification notification = new Notification();
-    private Text text = new Text ("Here you can see all the restaurants listed with their ratings, costs, location and cuisine types. \n");
+    private Text text = new Text ("Here you can see all the restaurants listed with their ratings, costs, location and cuisine types. You can also search restaurants by cuisine.\n");
 
 
     public RestaurantsView(RestaurantService service) {

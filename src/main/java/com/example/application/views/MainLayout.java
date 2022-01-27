@@ -114,25 +114,26 @@ public class MainLayout extends AppLayout {
 
                 // https://icons8.com/line-awesome
 
-                new MenuItemInfo("About Us Page", "la la-info", AboutView.class), //
+                new MenuItemInfo("Home", "la la-home", HomePage.class), //
 
-                new MenuItemInfo("Home Page", "la la-info", HomePage.class), //
+                new MenuItemInfo("About Us", "la la-info", AboutView.class), //
 
-                new MenuItemInfo("Users List", "la la-user-friends", UsersView.class), //
+                new MenuItemInfo("Make an Account", "la la-id-card", UserView.class), //
+
+                new MenuItemInfo("Login", "la la-user", LoginView.class), //
+
 
                 new MenuItemInfo("Restaurants List", "la la-cutlery", RestaurantsView.class), //
 
                 new MenuItemInfo("Restaurant Ratings", "la la-star", RatingsView.class), //
+                new MenuItemInfo("Rate Restaurants", "la la-keyboard", RatingForm.class),
 
-                new MenuItemInfo("New User Form", "la la-id-card", UserView.class), //
+                new MenuItemInfo("Add a Restaurant", "la la-store-alt", RestaurantView.class), //
 
-                new MenuItemInfo("New Restaurant Form", "la la-store-alt", RestaurantView.class), //
+                new MenuItemInfo("Recommended For You", "la la-thumbs-up", RecommendedView.class), //
+                new MenuItemInfo("Users List [restricted]", "la la-user-friends", UsersView.class), //
 
-                new MenuItemInfo("Rating Form", "la la-keyboard", RatingForm.class),
 
-                new MenuItemInfo("Recommended", "la la-thumbs-up", RecommendedView.class), //
-
-                new MenuItemInfo("Login", "la la-thumbs-up", LoginView.class), //
 
         };
         List<RouterLink> links = new ArrayList<>();

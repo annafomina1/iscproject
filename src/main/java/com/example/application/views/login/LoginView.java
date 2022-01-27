@@ -1,6 +1,7 @@
 package com.example.application.views.login;
 
 import com.example.application.views.MainLayout;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.textfield.TextField;
@@ -29,7 +30,7 @@ public class LoginView extends VerticalLayout{
         var username = new TextField("Username");
         var password = new PasswordField("Password");
         add(
-                new com.vaadin.flow.component.Component[]{new H1("login"), username, password, new Button("Login", event -> {
+                new com.vaadin.flow.component.Component[]{new H1("Login"), username, password, new Button("Login", event -> {
 
                     try {
                         //if the login is successful

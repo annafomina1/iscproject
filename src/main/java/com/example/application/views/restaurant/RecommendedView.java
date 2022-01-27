@@ -21,7 +21,7 @@ import java.util.List;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.Text;
 
-@PageTitle("Recommended")
+@PageTitle("Recommended For You")
 @Route(value = "recommended", layout = MainLayout.class)
 public class RecommendedView extends VerticalLayout {
 
@@ -34,7 +34,7 @@ public class RecommendedView extends VerticalLayout {
     private Button help = new Button("?");
     private Button closeButton = new Button("x");
     private Notification notification = new Notification();
-    private Text text = new Text ("Based on your location and ratings, we have gathered some recommendations for you!");
+    private Text text = new Text ("Based on your ratings, we have gathered some recommendations for you!");
 
     public RecommendedView(RatingService service, UserService userService) {
         this.service = service;
@@ -86,7 +86,7 @@ public class RecommendedView extends VerticalLayout {
 
 
     private Component createTitle() {
-        return new H3("Enter your username:");
+        return new H3("Enter your username to see your recommendations:");
     }
 
 

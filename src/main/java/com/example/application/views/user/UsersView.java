@@ -3,6 +3,7 @@ package com.example.application.views.user;
 import com.example.application.data.entity.User;
 import com.example.application.data.service.UserService;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;

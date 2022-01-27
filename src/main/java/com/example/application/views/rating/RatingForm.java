@@ -18,6 +18,7 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
@@ -35,10 +36,8 @@ public class RatingForm extends FormLayout {
      */
     private TextField username = new TextField("Username");
     //make password field
-    private TextField password = new TextField("Password");
+    private PasswordField password = new PasswordField("Password");
     private ComboBox<Restaurant> restaurant = new ComboBox<>("Restaurant");
-    //the next two fields are in the rating database
-    //!!if customer is rating the restaurant for the second time, remove the previous rating from the database somehow?
     private IntegerField value = new IntegerField("Rating");
 
     private Button cancel = new Button("Cancel");
