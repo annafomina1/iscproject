@@ -25,9 +25,11 @@ public class RestaurantsView extends VerticalLayout {
     Grid<Restaurant> grid = new Grid<>(Restaurant.class);
     RestaurantService service;
     
-    private Button help = new Button("?");
-    private Button closeButton = new Button("x");
-    private Notification notification = new Notification();
+    //creating the field objects for the help popup window system (Harper Rapkin)
+    private Button help = new Button("?");//help button
+    private Button closeButton = new Button("x");//close for help notification
+    private Notification notification = new Notification();//creating a notification object
+    //text that appears on the popup window
     private Text text = new Text ("Here you can see all the restaurants listed with their ratings, costs, location and cuisine types. You can also search restaurants by cuisine.\n");
 
 
@@ -37,7 +39,7 @@ public class RestaurantsView extends VerticalLayout {
         setSizeFull();
         configureGrid();
         add(cuisine, search, grid);
-        add(help);
+        add(help); //adding the button to access the help popup window (Harper Rapkin)
         setList();
 
         search.addClickListener(e ->{
@@ -47,12 +49,14 @@ public class RestaurantsView extends VerticalLayout {
 
         });
         
+        //setting the attributes and actions for the button (Harper Rapkin)
         Button closeButton = new Button("x");
         closeButton.getElement().setAttribute("aria-label", "Close");
         closeButton.addClickListener(event -> {
             notification.close();
         });
 
+        //setting the attributes and actions for the button, adding the notification when the button is clicked (Harper Rapkin)
         help.addClickListener(e ->{
             HorizontalLayout layout = new HorizontalLayout(text, closeButton);
             notification.add(layout);
