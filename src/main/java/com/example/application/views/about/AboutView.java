@@ -19,9 +19,11 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 @Route(value = "about", layout = MainLayout.class)
 public class AboutView extends VerticalLayout {
     
-    private Button help = new Button("?");
-    private Button closeButton = new Button("x");
-    private Notification notification = new Notification();
+    //creating the field objects for the help popup window system (Harper Rapkin)
+    private Button help = new Button("?");//help button
+    private Button closeButton = new Button("x");//close for the help notification
+    private Notification notification = new Notification();//creating a notification object
+    //text that appears on the popup window
     private Text text = new Text ("Welcome to Skibble, a convenient restaurant finder that meets your preferences and needs! Start off by making a new account in the new user form tab. From there you can check out the restaurants in the Restaurants List and add ratings in the Rating Form. \n");
 
 
@@ -57,19 +59,21 @@ public class AboutView extends VerticalLayout {
         add(new Paragraph(space));
         add(new Paragraph("Contact Information:"));
         add(new Paragraph("SkibbleHelp@Skibble.com         123-456-7890"));
-        add(help);
+        add(help); //adding the button to access the help popup window (Harper Rapkin)
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
         
+        //setting the attributes and actions for the button (Harper Rapkin)
         Button closeButton = new Button("x");
         closeButton.getElement().setAttribute("aria-label", "Close");
         closeButton.addClickListener(event -> {
             notification.close();
         });
-
+        
+        //setting the attributes and actions for the button, adding the notification when the button is clicked (Harper Rapkin)
         help.addClickListener(e ->{
             HorizontalLayout layout = new HorizontalLayout(text, closeButton);
             notification.add(layout);
