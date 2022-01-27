@@ -173,7 +173,7 @@ public class RatingService extends CrudService<Rating, Integer> {
         for (int i = 0; i < ratedRestaurants.size(); i++) {
             Restaurant ratedRestaurant = ratedRestaurants.get(i);
             //gets the cuisine of the rated restaurant
-            String restaurantCuisine = ratedRestaurant.getCuisine();
+            String restaurantCuisine = ratedRestaurant.getCuisine().trim();
 
             //creates an empty favouriteCuisine object, null for now
             FavouriteCuisine favouriteCuisine = null;
@@ -218,14 +218,14 @@ public class RatingService extends CrudService<Rating, Integer> {
         //iterates through the list of FavouriteCuisines
         for (int i = 0; i < favouriteCuisineList.size(); i++) {
             FavouriteCuisine favoriteCuisine = favouriteCuisineList.get(i);
-            //get the cuisine
+            //gets the cuisine
             String cuisine = favoriteCuisine.getCuisine();
 
             //iterates through the list of restaurant, ones not rated by the user remaining
             for (int j = 0; j < restaurants.size(); j++) {
                 Restaurant restaurant = restaurants.get(j);
                 //checks if that restaurant has the same cuisine as the FavouriteCuisine object
-                if (restaurant.getCuisine() == cuisine) {
+                if (restaurant.getCuisine().trim().equals(cuisine)) {
                     //if so, adds it the list of recommended restaurants
                     recommendedRestaurants.add(restaurant);
                 }//close if
