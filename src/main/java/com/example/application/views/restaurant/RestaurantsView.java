@@ -13,6 +13,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import java.util.List;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 @PageTitle("List of Restaurants")
 @Route(value = "restaurants", layout = MainLayout.class)
