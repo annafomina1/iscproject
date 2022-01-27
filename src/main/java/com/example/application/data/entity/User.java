@@ -150,7 +150,12 @@ public class User extends AbstractEntity {
         this.postalCode = postalCode;
     }
 
-
+    /**
+    created by: Harper Rapkin
+    checks the password connected to the username to see if it matches what has been inputed by the user.
+    @param p String, the users password
+    @return boolean, whether the password matches or not.
+    */
     public boolean checkPassword(String p){return p.equals(password);}
 
 }
