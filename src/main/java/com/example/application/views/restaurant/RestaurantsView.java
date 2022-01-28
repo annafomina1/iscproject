@@ -13,15 +13,18 @@ import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import java.util.List;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+
+/*
+RestaurantsView.java
+Created by Harper Rapkin and Ava Donaldson
+ */
 
 @PageTitle("List of Restaurants")
 @Route(value = "restaurants", layout = MainLayout.class)
 public class RestaurantsView extends VerticalLayout {
 
-    private TextField cuisine = new TextField("Search by cuisine...");
-    private Button search = new Button("Search");
-
+    private TextField cuisine = new TextField("Search by cuisine..."); // search bar to type in (Ava Donaldson)
+    private Button search = new Button("Search"); // search button
     Grid<Restaurant> grid = new Grid<>(Restaurant.class);
     RestaurantService service;
     
@@ -32,7 +35,10 @@ public class RestaurantsView extends VerticalLayout {
     //text that appears on the popup window
     private Text text = new Text ("Here you can see all the restaurants listed with their ratings, costs, location and cuisine types. You can also search restaurants by cuisine.\n");
 
-
+    /**
+     * RestaurantsView
+     * @param service
+     */
     public RestaurantsView(RestaurantService service) {
 
         this.service = service;
@@ -42,6 +48,7 @@ public class RestaurantsView extends VerticalLayout {
         add(help); //adding the button to access the help popup window (Harper Rapkin)
         setList();
 
+        //if the user presses the search button it will update the list and add the grid of what cuisine they searched for (Ava Donaldson)
         search.addClickListener(e ->{
 
             updateList();
@@ -67,6 +74,9 @@ public class RestaurantsView extends VerticalLayout {
 
     }
 
+    /**
+     * configureGrid method creates the grid filled with restaurants and each of their attributes
+     */
     private void configureGrid() {
         grid.addClassNames("restaurant-grid");
         grid.setSizeFull();
@@ -74,23 +84,32 @@ public class RestaurantsView extends VerticalLayout {
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
     }
 
+    /**
+     * updateList (ava donaldson)
+     */
     private void updateList() {
 
+        //if the search box is empty, or has nothing in it, it just shows the full list of restaurants
         if(cuisine== null|| cuisine.getValue().equals("")){
             List<Restaurant> list = service.findAll();
             grid.setItems(list);
 
         }
+
+        //if the user searches for a specific cuisine, it will make it case-insensitive and use the findCuisine method in the service class to find the list of restaurants that match the chosen cuisine
         else{
             List<Restaurant> list = service.findCuisine(cuisine.getValue().toLowerCase());
             grid.setItems(list);
         }
 
-    }
+    }//end method
 
+    /**
+     * setList (ava donaldson)
+     */
     private void setList(){
         List<Restaurant> list = service.findAll();
         grid.setItems(list);
-    }
+    }//end method
 
 }

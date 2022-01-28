@@ -21,6 +21,10 @@ Created By: Ava Donaldson
 //HomePage
 public class HomePage extends VerticalLayout {
 
+    /**
+     * HomePage
+     */
+
     public HomePage() {
         setSizeFull();
 
