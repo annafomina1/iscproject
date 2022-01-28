@@ -26,22 +26,35 @@ public class RestaurantService extends CrudService<Restaurant, Integer> {
         return repository.findAll();
     }
 
+    /**
+     * findCuisine method (created by Ava Donaldson)
+     * this is used to search for the user's chosen cuisine
+     * @param cuisine, String
+     * @return matches, ArrayList
+     */
+
     public List<Restaurant> findCuisine(String cuisine){
+
+        //collects the restaurants from the repository
         List<Restaurant> allRestaurants = repository.findAll();
+
+        //makes a new list to be used for the list of matches
         List<Restaurant> matches = new ArrayList<>();
 
+        //for loop repeats for each restaurant
         for(int i = 0; i < allRestaurants.size(); i++){
             Restaurant restaurant = allRestaurants.get(i);
             String restaurantCuisine = restaurant.getCuisine();
+
+            //checks if the cuisine of each restaurant matches the cuisine the user is searching for
             if(restaurantCuisine.toLowerCase().equals(cuisine)){
                 matches.add(restaurant);
             }
 
-
         }
 
         return matches;
-    }
+    }//end findCuisine method
 
 
 }
