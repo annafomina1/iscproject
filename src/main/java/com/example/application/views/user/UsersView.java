@@ -14,7 +14,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
-
+/*
+This class is a grid of all users.
+ */
 @PageTitle("User List")
 @Route(value = "users", layout = MainLayout.class)
 public class UsersView extends VerticalLayout {
@@ -64,7 +66,7 @@ public class UsersView extends VerticalLayout {
     }
 
     private void updateList() {
-        List<User> list = service.findAll();//null was a param
+        List<User> list = service.findAll();
         grid.setItems(list);
     }
 

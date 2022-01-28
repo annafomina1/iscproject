@@ -1,7 +1,23 @@
 # ICS Semester Project
 
-This program blah blah
+This program is a restaurant rating website. Users make an account to rate
+the available restaurants and add new ones. Restaurant recommendations are 
+provided for users. 
 
+Created by Anna Fomina, Ava Donaldson, Harper Rapkin, and Christine Shao.
+
+Link to the GitHub repo: https://github.com/annafomina1/iscproject
+
+Link to Application path: https://github.com/annafomina1/iscproject/tree/367e50003f632f9d3c0ff883e6b88e7e38bbea6d/src/main/java/com/example/application
+
+Entity (AverageRating, FavouriteCuisine, Rating, Restaurant, User): https://github.com/annafomina1/iscproject/tree/367e50003f632f9d3c0ff883e6b88e7e38bbea6d/src/main/java/com/example/application/data/entity
+Service (AuthService, RatingRepository, RatingService, RestaurantRepository, RestaurantService, UserRepository, UserService): https://github.com/annafomina1/iscproject/tree/367e50003f632f9d3c0ff883e6b88e7e38bbea6d/src/main/java/com/example/application/data/service
+Views (AboutView, HomePage, LoginView, RatingForm, RatingsView, RecommendedView, ResturantsView, RestaurantView, UsersView, UserView, MainLayout): https://github.com/annafomina1/iscproject/tree/367e50003f632f9d3c0ff883e6b88e7e38bbea6d/src/main/java/com/example/application/views 
+
+(Entities are the basic Java classes. Service contains the logic methods and connects to the database. 
+Views are the user-friendly interface pages.)
+
+The database is a mySQL database hosted on AWS. Connection in application.properties: https://github.com/annafomina1/iscproject/blob/367e50003f632f9d3c0ff883e6b88e7e38bbea6d/src/main/resources/application.properties 
 ## Running the application
 
 The project is a standard Maven project. To run it from the command line,
@@ -11,16 +27,6 @@ http://localhost:8080 in your browser.
 You can also import the project to your IDE of choice as you would with any
 Maven project. Read more on [how to set up a development environment for
 Vaadin projects](https://vaadin.com/docs/latest/guide/install) (Windows, Linux, macOS).
-
-## Deploying to Production
-
-To create a production build, call `mvnw clean package -Pproduction` (Windows),
-or `./mvnw clean package -Pproduction` (Mac & Linux).
-This will build a JAR file with all the dependencies and front-end resources,
-ready to be deployed. The file can be found in the `target` folder after the build completes.
-
-Once the JAR file is built, you can run it using
-`java -jar target/ufaproject-1.0-SNAPSHOT.jar`
 
 ## Project structure
 

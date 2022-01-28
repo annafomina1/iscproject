@@ -14,11 +14,20 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
+/*
+This class is a view that shows a grid of all restaurants that have ratings. For each restaurant, the average rating
+and the number of ratings is shown.
+Created By: Anna Fomina, Harper Rapkin
+Date Created: 2021-12-13
+Date Last Edited: 2022-01-26
+ */
 @PageTitle("Restaurant Ratings")
 @Route(value = "ratings", layout = MainLayout.class)
 public class RatingsView extends VerticalLayout{
 
+    //new grid of AverageRating objects
     Grid<AverageRating> grid = new Grid<>(AverageRating.class);
+    //the rating service
     RatingService service;
     
     //creating the field objects for the help popup window system (Harper Rapkin)
@@ -28,9 +37,13 @@ public class RatingsView extends VerticalLayout{
     //text that appears on the popup window
     private Text text = new Text ("Here is the list of restaurants registered with their average ratings and their number of ratings.\n");
 
+    /**
+     * The RatingsView page. Has the grid or average ratings and help button.
+     * @param service The rating service.
+     */
     public RatingsView(RatingService service) {
         this.service = service;
-        addClassName("list-view");
+        //configures and adds populated list - Anna
         setSizeFull();
 
         configureGrid();
@@ -55,6 +68,9 @@ public class RatingsView extends VerticalLayout{
         });
     }
 
+    /**
+     * Configures the grid, sets the columns to have the same names as the fields in the AverageRating class.- Anna
+     */
     private void configureGrid() {
         grid.addClassNames("ratings-grid");
         grid.setSizeFull();
@@ -62,6 +78,9 @@ public class RatingsView extends VerticalLayout{
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
     }
 
+    /**
+     * Sets grid items to the list of all average ratings using the getAverageRatings method from rating service. - Anna
+     */
     private void updateList() {
         List<AverageRating> list = service.getAverageRatings();
         grid.setItems(list);

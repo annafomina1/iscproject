@@ -8,11 +8,18 @@ import org.vaadin.artur.helpers.CrudService;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+This service contains the logic methods for anything related to restaurants. It indirectly connects to the database
+through the restaurant repository.
+Created By: Anna Fomina, Ava Donaldson
+Date Created: 2021-12-13
+Date Last Edited: 2022-01-16
+ */
 @Service
 public class RestaurantService extends CrudService<Restaurant, Integer> {
 
+    //connects to the restaurant repository
     private static RestaurantRepository repository;
-
     public RestaurantService(@Autowired RestaurantRepository repository) {
         this.repository = repository;
     }
@@ -22,6 +29,10 @@ public class RestaurantService extends CrudService<Restaurant, Integer> {
         return repository;
     }
 
+    /**
+     * Returns a list of all restaurants in the database.
+     * @return A list of all restaurants, List<Restaurant>.
+     */
     public static List<Restaurant> findAll() {
         return repository.findAll();
     }
@@ -32,7 +43,6 @@ public class RestaurantService extends CrudService<Restaurant, Integer> {
      * @param cuisine, String
      * @return matches, ArrayList
      */
-
     public List<Restaurant> findCuisine(String cuisine){
 
         //collects the restaurants from the repository

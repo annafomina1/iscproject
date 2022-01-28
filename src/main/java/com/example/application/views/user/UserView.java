@@ -12,6 +12,7 @@ import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
@@ -21,7 +22,6 @@ import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.Text;
 
-//!! add username taken check and notification
 /*
  * This page is a form where new users input their information
  */
@@ -34,8 +34,8 @@ public class UserView extends Div {
     private TextField lastName = new TextField("Last name");
     private EmailField email = new EmailField("Email address");
     private TextField username = new TextField("Username");
-    private TextField password = new TextField("Password");
-    private TextField postalCode = new TextField("City");
+    private PasswordField password = new PasswordField("Password");
+    private TextField postalCode = new TextField("Postal Code");
     private DatePicker dateOfBirth = new DatePicker("Birthday");
 
     private Button cancel = new Button("Cancel");

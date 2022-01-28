@@ -18,19 +18,22 @@ import com.vaadin.flow.router.PageTitle;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.icon.Icon;
-
+/*
+This class is the form to add a new restaurant.
+Created by Harper Rapkin and Anna Fomina
+ */
 @PageTitle("Restaurant Information Form")
 @Route(value = "restaurant", layout = MainLayout.class)
 @Uses(Icon.class)
 public class RestaurantView extends Div {
-    // creates TextField objects for each field
+    // creates TextField objects for each input field
     private TextField name = new TextField("Name");
     private TextField address = new TextField("Address");
     private TextField postalCode = new TextField("Postal Code");
     private TextField cuisine = new TextField("Cuisine");
     private TextField location = new TextField("Location");
-    private TextField cost = new TextField("Cost");
-    //^ drop down?
+    private TextField cost = new TextField("Cost ($-$$$$)");
+
 // creates button objects for the cancel and save button
     private Button cancel = new Button("Cancel");
     private Button save = new Button("Save");

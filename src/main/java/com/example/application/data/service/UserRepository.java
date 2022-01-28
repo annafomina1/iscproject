@@ -4,7 +4,7 @@ import com.example.application.data.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
-This repository connects the rating table in the mySQL database.
+This repository connects the user table in the mySQL database.
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
 
